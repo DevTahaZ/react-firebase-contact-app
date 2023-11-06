@@ -9,7 +9,7 @@ import * as Yup from 'yup'
 const contactSchemaValidation = Yup.object().shape({
     name: Yup.string().required("*"),
     email: Yup.string().email("*Invalid Email").required("*"),
-    number: Yup.string().length(10, "*must be exactly 11 digits").required("*"),
+    number: Yup.string().min(7, "*must be at least 7 digits").max(15, "*must be at most 15 digits").required("*"),
 })
 
 const AddAndUpdateContact = ({isOpen, onClose, isUpdate, contact}) => {
@@ -80,7 +80,7 @@ const AddAndUpdateContact = ({isOpen, onClose, isUpdate, contact}) => {
                                 <ErrorMessage name="number"/>
                             </div>
                         </label>
-                        <Field type="number" placeholder="03XXXXXXXXX" name="number" className="input"/>
+                        <Field type="number" placeholder="Type your number with country code without ' + '" name="number" className="input"/>
                     </div>
                     <div className='submit-btn'>
                         <button type='submit'>{isUpdate ? "Update" : "Add"} Contact</button>

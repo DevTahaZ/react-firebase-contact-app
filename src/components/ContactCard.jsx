@@ -27,7 +27,7 @@ const ContactCard = ({ contact }) => {
               <div className='contact-details'>
                 <h2>{contact.name}</h2>
                 <p>{contact.email}</p>
-                <p>{contact.number}</p>
+                <p>+{contact.number}</p>
               </div>
             </div>
             <div className='end'>
